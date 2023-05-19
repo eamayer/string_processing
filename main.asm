@@ -83,13 +83,13 @@ ARRAYLENGTH = 10
 .data
 programTitle		BYTE	'Low-level Procedures by Elizabeth Mayer', 13, 10, 0
 programDescription	BYTE	'Please enter 10 decimals that are positive or negative.', 13, 10,
-							'Each number needs to be small enough ',
-							'to fit in a 32-bit register. After you enter 10 valid numbers, ', 13, 10,
+				'Each number needs to be small enough ',
+				'to fit in a 32-bit register. After you enter 10 valid numbers, ', 13, 10,
 							'I will display the full list of all the numbers plus',
 							' give you the sum and average of the numbers. ', 13, 10 , 0
-prompt				BYTE	'. Please enter a signed integer: ', 0
-errorMsg			BYTE	'That is not a valid number. It is either too big ', 13, 10,
-							'or contains characters. Let us try that again.', 13, 10, 0
+prompt			BYTE	'. Please enter a signed integer: ', 0
+errorMsg		BYTE	'That is not a valid number. It is either too big ', 13, 10,
+				'or contains characters. Let us try that again.', 13, 10, 0
 errorMsgprompt		BYTE	'. Please try again: ', 0
 asciiArray			BYTE	33 DUP(?)
 orderedASCIIArray	BYTE	33 DUP(?)
@@ -99,15 +99,15 @@ sumText				BYTE	'The sum of the numbers is: ', 0
 roundedAveText		BYTE	'The rounded average is:', 0
 runningTotalText	BYTE	'. The running total is: ', 0
 valueEntered		BYTE	33 DUP(0)
-extraCredit			BYTE	'**EC Description 1: Number each line of user input and display a running ', 13, 10,
+extraCredit		BYTE	'**EC Description 1: Number each line of user input and display a running ', 13, 10,
 							'subtotal of the users valid numbers', 13, 10, 0
-numArray			DWORD	ARRAYLENGTH DUP (0)
-count				DWORD	1																			; start at 1 to use for printing values entered
-sum					SDWORD	0
-average				SDWORD	0
+numArray		DWORD	ARRAYLENGTH DUP (0)
+count			DWORD	1																			; start at 1 to use for printing values entered
+sum			SDWORD	0
+average			SDWORD	0
 numArrayLength		DWORD	LENGTHOF numArray
-maxValue			DWORD	SIZEOF valueEntered
-byteCount			DWORD	?
+maxValue		DWORD	SIZEOF valueEntered
+byteCount		DWORD	?
 convertedValue		SDWORD	?
 
 
@@ -178,7 +178,7 @@ _testProgram:
 
 	; runs through each value in the array and prints it
 	_writeValLoop:
-		MOV	 EDX, [ESI]					; move value from array into EDX
+		MOV	 EDX, [ESI]			; move value from array into EDX
 		MOV	 convertedValue, EDX		; move into variable
 		PUSH OFFSET orderedASCIIArray
 		PUSH convertedValue
